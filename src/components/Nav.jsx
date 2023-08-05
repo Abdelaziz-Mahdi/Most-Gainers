@@ -14,14 +14,6 @@ export default function Nav() {
           >
             Back Home
           </NavLink>
-
-          <NavLink
-            to="/details"
-            className="btn btn-outline-light"
-          >
-            Details
-          </NavLink>
-
         </div>
       </nav>
       <Outlet />
