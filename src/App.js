@@ -14,7 +14,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Nav className="App" />}>
               <Route index element={<Home />} />
-              <Route path="/:id" element={<Details />} />
+              <Route path="/:symbol" element={<Details />} />
               <Route path="*" element={<div>Page not found 404!</div>} />
             </Route>
           </Routes>
