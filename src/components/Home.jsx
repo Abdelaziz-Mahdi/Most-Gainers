@@ -10,21 +10,20 @@ export default function Home() {
   const gainersLoading = useSelector(selectGainersLoading);
   const gainersError = useSelector(selectGainersError);
   let content;
+  const [searchTerm, setSearchTerm] = React.useState('');
+  const [searchResults, setSearchResults] = React.useState([]);
 
-  if (gainersLoading) {
-    content = (
-      <li>
-        <h2>Loading...</h2>
-      </li>
-    );
-  } else if (gainersError) {
-    content = (
-      <li>
-        <h2>{gainersError}</h2>
-      </li>
-    );
-  } else {
-    content = gainers.gainers.map((gainer) => (
+  const handleChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  React.useEffect(() => {
+    const results = gainers.filter((gainer) => gainer.name.toLowerCase().includes(searchTerm));
+    setSearchResults(results);
+  }, [searchTerm, gainers]);
+
+  if (searchTerm) {
+    content = searchResults.map((gainer) => (
       <li className="card col-6" key={gainer.symbol}>
         <div className="card-body">
           <h5 className="card-title">{gainer.name}</h5>
@@ -33,6 +32,22 @@ export default function Home() {
         </div>
       </li>
     ));
+  } else {
+    content = gainers.map((gainer) => (
+      <li className="card col-6" key={gainer.symbol}>
+        <div className="card-body">
+          <h5 className="card-title">{gainer.name}</h5>
+          <h6 className="card-subtitle mb-2 text-muted">{gainer.symbol}</h6>
+          <p className="card-text">{gainer.change}</p>
+        </div>
+      </li>
+    ));
+  }
+
+  if (gainersLoading) {
+    content = <div className="spinner-border text-success" role="status" />;
+  } else if (gainersError) {
+    content = <div className="alert alert-danger" role="alert">{gainersError}</div>;
   }
 
   return (
@@ -45,7 +60,13 @@ export default function Home() {
               <form action="" className="text-center">
                 <div className=" d-flex justify-content-center">
                   <div className="col-6">
-                    <input type="text" className="form-control" placeholder="Enter a Company Name" />
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Search"
+                      value={searchTerm}
+                      onChange={handleChange}
+                    />
                   </div>
                 </div>
               </form>
