@@ -29,7 +29,7 @@ export default function Home() {
   } else {
     content = searchResults.map((gainer) => (
       <li className="col-6" key={gainer.symbol}>
-        <NavLink to={`/details/${gainer.symbol}`} className="text-decoration-none">
+        <NavLink to={`/${gainer.symbol}`} className="text-decoration-none">
           <figure className="border rounded p-3 bg-success-subtle">
             <div className="row align-items-center">
               <div className="col-12">
