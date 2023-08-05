@@ -1,17 +1,17 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import {
   selectGainers, selectGainersLoading, selectGainersError,
 } from '../redux/gainersSlice';
 
 export default function Home() {
   const gainers = useSelector(selectGainers);
-  // console.log(gainers.gainers);
   const gainersLoading = useSelector(selectGainersLoading);
   const gainersError = useSelector(selectGainersError);
   let content;
   const [searchTerm, setSearchTerm] = React.useState('');
-  const [searchResults, setSearchResults] = React.useState([]);
+  const [searchResults, setSearchResults] = React.useState(gainers);
 
   const handleChange = (event) => {
     setSearchTerm(event.target.value);
@@ -22,32 +22,28 @@ export default function Home() {
     setSearchResults(results);
   }, [searchTerm, gainers]);
 
-  if (searchTerm) {
-    content = searchResults.map((gainer) => (
-      <li className="card col-6" key={gainer.symbol}>
-        <div className="card-body">
-          <h5 className="card-title">{gainer.name}</h5>
-          <h6 className="card-subtitle mb-2 text-muted">{gainer.symbol}</h6>
-          <p className="card-text">{gainer.change}</p>
-        </div>
-      </li>
-    ));
-  } else {
-    content = gainers.map((gainer) => (
-      <li className="card col-6" key={gainer.symbol}>
-        <div className="card-body">
-          <h5 className="card-title">{gainer.name}</h5>
-          <h6 className="card-subtitle mb-2 text-muted">{gainer.symbol}</h6>
-          <p className="card-text">{gainer.change}</p>
-        </div>
-      </li>
-    ));
-  }
-
   if (gainersLoading) {
     content = <div className="spinner-border text-success" role="status" />;
   } else if (gainersError) {
     content = <div className="alert alert-danger" role="alert">{gainersError}</div>;
+  } else {
+    content = searchResults.map((gainer) => (
+      <li className="col-6" key={gainer.symbol}>
+        <NavLink to={`/details/${gainer.symbol}`} className="text-decoration-none">
+          <figure className="border rounded p-3 bg-success-subtle">
+            <div className="row align-items-center">
+              <div className="col-12">
+                <h5>{gainer.name}</h5>
+                <p>
+                  Change:&nbsp;
+                  {gainer.change}
+                </p>
+              </div>
+            </div>
+          </figure>
+        </NavLink>
+      </li>
+    ));
   }
 
   return (
