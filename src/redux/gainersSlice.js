@@ -44,9 +44,8 @@ const gainersSlice = createSlice({
   },
 });
 
-export const selectGainers = (state) => state.gainers;
-console.log(selectGainers);
+export const selectGainers = (state) => state.gainers.gainers;
 export const selectGainersLoading = (state) => state.gainers.gainersLoading;
-export const selectBooksError = (state) => state.gainers.gainersError;
+export const selectGainersError = (state) => state.gainers.gainersError;
 export const { addABook, removeABook } = gainersSlice.actions;
 export default gainersSlice.reducer;
