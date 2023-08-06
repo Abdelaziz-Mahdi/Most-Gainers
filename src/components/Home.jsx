@@ -4,6 +4,8 @@ import { NavLink } from 'react-router-dom';
 import {
   selectGainers, selectGainersLoading, selectGainersError,
 } from '../redux/gainersSlice';
+import '../styles/Home.css';
+import imgSmg from '../assets/smg.jpg';
 
 export default function Home() {
   const gainers = useSelector(selectGainers);
@@ -28,51 +30,39 @@ export default function Home() {
     content = <div className="alert alert-danger" role="alert">{gainersError}</div>;
   } else {
     content = searchResults.map((gainer) => (
-      <li className="col-6" key={gainer.symbol}>
-        <NavLink to={`/${gainer.symbol}`} className="text-decoration-none">
-          <figure className="border rounded p-3 bg-success-subtle">
-            <div className="row align-items-center">
-              <div className="col-12">
-                <h5>{gainer.name}</h5>
-                <p>
-                  Change:&nbsp;
-                  {gainer.change}
-                </p>
-              </div>
-            </div>
-          </figure>
+      <li className="detail" key={gainer.symbol}>
+        <NavLink to={`/${gainer.symbol}`} className="detail-link">
+          <div className="detail-info">
+            <h4>{gainer.name}</h4>
+            <p>
+              Change:&nbsp;
+              {gainer.change}
+            </p>
+          </div>
         </NavLink>
       </li>
     ));
   }
 
   return (
-    <section>
-      <div className="d-flex flex-column gap-3">
-        <figure className="container mb-2 border rounded p-3 bg-success-subtle">
-          <div className="row align-items-center">
-            <div className="col-12 text-center">
-              <h3>Stock Market Most Gainers API</h3>
-              <form action="" className="text-center">
-                <div className=" d-flex justify-content-center">
-                  <div className="col-6">
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="Search"
-                      value={searchTerm}
-                      onChange={handleChange}
-                    />
-                  </div>
-                </div>
-              </form>
-            </div>
-            <ul className="row col-12">
-              {content}
-            </ul>
-          </div>
-        </figure>
+    <section className="gainers-search ">
+
+      <div className="">
+        <img src={imgSmg} alt="nasdaq logo" width="400" height="200" />
+        <form action="" className="form">
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Search"
+            value={searchTerm}
+            onChange={handleChange}
+          />
+        </form>
       </div>
+      <ul className="gainers-container">
+        {content}
+      </ul>
+
     </section>
   );
 }
