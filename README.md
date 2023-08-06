@@ -170,6 +170,7 @@ Give a ⭐️ if you like this project!
 
 - Template used in the project provided by (Microverse)!
 - Original design idea by Nelson Sakwa on Behance.
+If you liked the original design that inspired this project, I recommend you visit [Nelson Sakwa's Behance post](https://www.behance.net/gallery/31579789/Ballhead-App-(Free-PSDs)). and follow him on Behance to support her work.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
