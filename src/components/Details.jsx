@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import {
   selectGainers, selectGainersLoading, selectGainersError,
 } from '../redux/gainersSlice';
+import '../styles/Details.css';
 
 export default function Details() {
   const { symbol } = useParams();
@@ -29,18 +30,21 @@ export default function Details() {
     content = <div className="alert alert-danger" role="alert">{detailsError}</div>;
   } else {
     content = (
-      <div className="row">
-        <div className="col-12">
-          <h3>{cardResults.name}</h3>
+      <div className="details-list">
+        <h3 className="text-white">{cardResults.name}</h3>
+        <div className="text-white">
           <p>
             Change:&nbsp;
             {cardResults.change}
             <br />
+            <br />
             Change Percent:&nbsp;
             {cardResults.changesPercentage}
             <br />
+            <br />
             Price:&nbsp;
             {cardResults.price}
+            <br />
             <br />
             Symbol:&nbsp;
             {cardResults.symbol}
@@ -52,14 +56,7 @@ export default function Details() {
 
   return (
     <section>
-      <div className="d-flex flex-column gap-3">
-        <figure className="container mb-2 border rounded p-3 bg-success-subtle">
-          <div className="row align-items-center">
-            <div className="col-12 text-center">
-              <h3>Stock Market Details API</h3>
-            </div>
-          </div>
-        </figure>
+      <div className="details-container">
         {content}
       </div>
     </section>

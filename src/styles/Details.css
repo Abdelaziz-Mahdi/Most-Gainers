@@ -1,0 +1,25 @@
+.details-container,
+.details-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.details-container div {
+  display: flex;
+  padding: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+p {
+  font-size: 1.1rem;
+}
+.text-white {
+  color: #fff;
+}
+
+.info-text {
+  color: #fff;
+  font-size: 1.1rem;
+}
