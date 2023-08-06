@@ -16,7 +16,7 @@ export default function Nav() {
             </NavLink>
           </li>
           <li>
-            <h2 className="nav-title">Stock Market Most Gainers</h2>
+            <p className="nav-title">Stock Market Most Gainers</p>
           </li>
           <li className="">
             <img src={settingIcon} alt="back-icon" width="24" height="24" />

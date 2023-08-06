@@ -1,7 +1,24 @@
 .nav-bar {
   background-color: rgb(204, 78, 137);
   display: flex;
-  padding: 1rem 0.5rem;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 3.5rem;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  padding: 0.5rem 1rem;
+}
+
+li.nav-li {
+  display: flex;
+  flex-direction: row;
+}
+
+ul.nav-list,
+p.nav-title {
+  margin-bottom: 0;
 }
 
 .nav-bar ul {
