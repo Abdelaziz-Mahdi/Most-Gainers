@@ -6,10 +6,25 @@
 
 .details-container div {
   display: flex;
-  padding: 0.5rem;
+  padding: 20px 0  20px 0;
   justify-content: center;
   align-items: center;
   gap: 2rem;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.details-list li {
+  padding: 1rem 0.5rem;
+}
+
+.details-list li:nth-child(odd) {
+  background-color: rgb(204, 78, 137);
 }
 
 p {

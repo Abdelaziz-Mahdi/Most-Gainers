@@ -32,24 +32,25 @@ export default function Details() {
     content = (
       <div className="details-list">
         <h3 className="text-white">{cardResults.name}</h3>
-        <div className="text-white">
-          <p>
+        <h3 className="text-white">{cardResults.symbol}</h3>
+        <ul className="text-white">
+          <li>
             Change:&nbsp;
             {cardResults.change}
-            <br />
-            <br />
+          </li>
+          <li>
             Change Percent:&nbsp;
             {cardResults.changesPercentage}
-            <br />
-            <br />
+          </li>
+          <li>
             Price:&nbsp;
             {cardResults.price}
-            <br />
-            <br />
+          </li>
+          <li>
             Symbol:&nbsp;
             {cardResults.symbol}
-          </p>
-        </div>
+          </li>
+        </ul>
       </div>
     );
   }
