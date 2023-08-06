@@ -11,12 +11,11 @@ function App() {
     <>
       <Provider store={store}>
         <BrowserRouter>
+          <Nav className="App" />
           <Routes>
-            <Route path="/" element={<Nav className="App" />}>
-              <Route index element={<Home />} />
-              <Route path="/:symbol" element={<Details />} />
-              <Route path="*" element={<div>Page not found 404!</div>} />
-            </Route>
+            <Route index element={<Home />} />
+            <Route path="/:symbol" element={<Details />} />
+            <Route path="*" element={<div>Page not found 404!</div>} />
           </Routes>
           <Footer />
         </BrowserRouter>
