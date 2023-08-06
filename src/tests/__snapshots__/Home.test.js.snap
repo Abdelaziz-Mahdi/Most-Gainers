@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<section>
+  <div
+    className="details-container"
+  >
+    <div
+      className="details-list"
+    >
+      <h3
+        className="text-white"
+      />
+      <div
+        className="text-white"
+      >
+        <p>
+          Change: 
+          <br />
+          <br />
+          Change Percent: 
+          <br />
+          <br />
+          Price: 
+          <br />
+          <br />
+          Symbol: 
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+`;

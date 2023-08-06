@@ -2,6 +2,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  text-decoration: none !important;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  background-color: rgb(248, 74, 158) !important;
 }
 
 ul,

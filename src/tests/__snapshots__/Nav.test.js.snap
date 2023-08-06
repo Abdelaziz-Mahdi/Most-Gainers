@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<header
+  className=""
+>
+  <nav
+    className="nav-bar"
+  >
+    <ul
+      className="nav-list"
+    >
+      <li
+        className=""
+      >
+        <a
+          aria-current="page"
+          className="nav-title active"
+          href="/"
+          onClick={[Function]}
+        >
+          &lt;
+        </a>
+      </li>
+      <li>
+        <h2
+          className="nav-title"
+        >
+          Stock Market Most Gainers
+        </h2>
+      </li>
+      <li
+        className=""
+      >
+        <img
+          alt="back-icon"
+          height="24"
+          src="settings.png"
+          width="24"
+        />
+      </li>
+    </ul>
+  </nav>
+</header>
+`;
