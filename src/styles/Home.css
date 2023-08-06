@@ -1,6 +1,7 @@
 .gainers-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  width: 100%;
 }
 
 .detail-link,
@@ -45,7 +46,7 @@
 }
 
 ul {
-  padding-left: 0;
+  padding-left: 0 !important;
 }
 
 .detail-info {
