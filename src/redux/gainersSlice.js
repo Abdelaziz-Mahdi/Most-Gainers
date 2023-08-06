@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 const API_URL = 'https://financialmodelingprep.com/api/v3/stock_market/gainers?apikey=3a50c9290eb377d677aba64d1291708d';
 
-const initialState = {
+export const initialState = {
   gainers: [],
   gainersLoading: false,
   gainersError: null,
